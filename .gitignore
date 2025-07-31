@@ -1,0 +1,15 @@
+[
+    {
+        "type": "command",
+        "details": {
+            "key": "git.ignore"
+        }
+    },
+    {
+        "type": "command",
+        "details": {
+            "key": "workbench.extensions.search",
+            "value": "gitignore"
+        }
+    }
+]
