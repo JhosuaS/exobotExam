@@ -1,0 +1,92 @@
+@startuml exobotClassDiagram
+' Definición de paquetes
+package EjercitoRuso {
+    interface IHumanoExtremidad
+    class Humano {
+        - id: Integer
+        - nombre: String
+        - brazoIzquierdo: Boolean
+        - brazoDerecho: Boolean
+        - piernaIzquierdo: Boolean
+        - piernaDerecho: Boolean
+    }
+
+    class ExpertoEspaniol
+    class ExpertoIngles
+    class Mecatronico
+    class Soldado
+    class IABot {
+        - instance: IABot
+        + getInstance()
+    }
+    class Whiterun
+
+    Humano <|-- ExpertoEspaniol
+    Humano <|-- ExpertoIngles
+    Humano <|-- Mecatronico
+    Humano <|-- Soldado
+    Humano ..|> IHumanoExtremidad
+    Whiterun --> IABot
+    Whiterun --> Soldado
+}
+
+package Exoesqueleto {
+    interface ITecnicoEspaniol
+    interface ITecnicoIngles
+
+    class Exobot {
+        - inicializado: Boolean
+        - nroSerie: String
+        + dispararMetralleta()
+        + dispararLaser()
+        + volar()
+    }
+
+    class FuentePoder {
+        - nivelEnergia: Integer
+        + recargar()
+        + reemplazar()
+    }
+
+    class BrazoDerecho {
+        - nroDisparo: Integer
+        + fuego()
+    }
+
+    class BrazoIzquierdo {
+        - nroDisparo: Integer
+        + fuego()
+    }
+
+    class Laser {
+        + disparar()
+    }
+
+    class Metralleta {
+        - nroBala: Integer
+        + disparar()
+    }
+
+    class Pierna
+    class TurboReactor
+
+    FuentePoder --> IABot
+    Exobot --> FuentePoder
+    Exobot --> TurboReactor
+    Exobot --> BrazoDerecho
+    Exobot --> BrazoIzquierdo
+    Exobot --> Pierna
+    BrazoDerecho --> Laser
+    BrazoIzquierdo --> Metralleta
+    FuentePoder --> FuentePoder : fp
+}
+
+' Relaciones entre paquetes
+EjercitoRuso.Mecatronico --> Exoesqueleto.Exobot
+EjercitoRuso.Soldado --> Exoesqueleto.Exobot
+EjercitoRuso.ExpertoEspaniol --> Exoesqueleto.ITecnicoEspaniol
+EjercitoRuso.ExpertoIngles --> Exoesqueleto.ITecnicoIngles
+Exoesqueleto.Exobot ..|> EjercitoRuso.IHumanoExtremidad
+Exoesqueleto.Exobot --|> EjercitoRuso.IABot
+
+@enduml

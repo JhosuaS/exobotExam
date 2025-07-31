@@ -1,0 +1,394 @@
+package EjercitoRuso;
+
+import Exoesqueleto.ITecnicoEspaniol;
+
+public class ExpertoEspaniol extends Humano {
+    public ExpertoEspaniol(Integer id, String nombre) {
+        super(id, nombre);
+    }
+
+    public void enseniar(ITecnicoEspaniol espaniolExobot){
+        System.out.println("Enseñar ITecnicoEspaniol espaniol.");
+    }
+}
+
+
+
+package EjercitoRuso;
+
+import Exoesqueleto.ITecnicoIngles;
+
+public class ExpertoIngles extends Humano {
+
+    public ExpertoIngles(Integer id, String nombre) {
+        super(id, nombre);
+    }
+
+    public void enseniar(ITecnicoIngles inglesExobot){
+        System.out.println("Enseñar ITecnicoIngles inglés.");
+    }
+}
+package EjercitoRuso;
+
+public abstract class Humano implements IHumanoExtremidad {
+    private Integer id;
+    private String  nombre;
+    private Boolean brazoIzquierdo;
+    private Boolean brazoDerecho;
+    private Boolean piernaIzquierdo;
+    private Boolean piernaDerecho;
+
+    public Humano(Integer id, String nombre) { //constructor
+        this.nombre = nombre;
+        this.id = id;
+        setBrazoIzquierdo(true);
+        setBrazoDerecho(true);
+        setPiernaIzquierdo(true);
+        setPiernaDerecho(true);
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Boolean getBrazoIzquierdo() {
+        return brazoIzquierdo;
+    }
+
+    public void setBrazoIzquierdo(Boolean brazoIzquierdo) {
+        this.brazoIzquierdo = brazoIzquierdo;
+    }
+
+    public Boolean getBrazoDerecho() {
+        return brazoDerecho;
+    }
+
+    public void setBrazoDerecho(Boolean brazoDerecho) {
+        this.brazoDerecho = brazoDerecho;
+    }
+
+    public Boolean getPiernaIzquierdo() {
+        return piernaIzquierdo;
+    }
+
+    public void setPiernaIzquierdo(Boolean piernaIzquierdo) {
+        this.piernaIzquierdo = piernaIzquierdo;
+    }
+
+    public Boolean getPiernaDerecho() {
+        return piernaDerecho;
+    }
+
+    public void setPiernaDerecho(Boolean piernaDerecho) {
+        this.piernaDerecho = piernaDerecho;
+    }
+
+}
+package EjercitoRuso;
+
+public class IABot {
+
+    private static IABot instance;
+
+    protected  IABot() {}
+
+    public static IABot getInstance() { //garantizar que solo exista una instancia de IABot
+        if (instance == null) {
+            instance = new IABot();
+        }
+        return instance;
+    }
+}package EjercitoRuso;
+
+public interface IHumanoExtremidad {
+
+}
+package EjercitoRuso;
+
+import Exoesqueleto.Exobot;
+
+public class Mecatronico extends Humano {
+
+    Exobot eb;
+
+    public Mecatronico(Integer id, String nombre) {
+        super(id, nombre);
+    }
+
+    public Mecatronico(Integer id, String nombre, Exobot eb) {
+        super(id, nombre);
+        this.eb = eb;
+    }
+
+}
+package EjercitoRuso;
+
+import Exoesqueleto.Exobot;
+
+public class Soldado extends Humano {
+
+    Exobot eb;
+
+    public Soldado(Integer id, String nombre) {
+        super(id, nombre);
+        System.out.println("Soldado preparado...");
+    }
+
+    public Boolean poner(Exobot eb) {
+        this.eb = eb;
+        System.out.println("Soldado " + getNombre() + " se ha puesto un " + eb.getNroSerie());
+        return true;
+    }
+}
+package EjercitoRuso;
+
+import Exoesqueleto.Exobot;
+import Exoesqueleto.FuentePoder;
+
+public class Whiterun {
+    IABot       ia; 
+    FuentePoder fp; 
+    Exobot      e ; 
+    Soldado     s ; 
+
+    public void iniciar() {
+        ia = IABot.getInstance();
+        fp = new FuentePoder();
+        e  = new Exobot("Serie JUGG3RN0G", fp);
+        s  = new Soldado(1, "Pepe");
+
+        s.poner(e);
+
+    }
+}
+  package Exoesqueleto;
+
+public class BrazoDerecho {
+    private Integer nroDisparo;
+    public Laser l;
+
+    public BrazoDerecho() {
+        l = new Laser();
+    }    
+
+    public Integer getNroDisparo() {
+        return nroDisparo;
+    }
+
+    public void setNroDisparo(Integer nroDisparo) {
+        this.nroDisparo = nroDisparo;
+    }
+
+    public boolean fuego(int tiempo, int nivelEnergia) {
+        if (tiempo > 1 && nivelEnergia > 0) {
+            setNroDisparo(nroDisparo++ );
+            l.disparar(tiempo);
+            return true;
+        }
+        return false;
+    }
+}
+package Exoesqueleto;
+
+public class BrazoIzquierdo {
+    private Integer nroDisparo;
+    public Metralleta m;
+
+
+    public Integer getNroDisparo() {
+        return nroDisparo;
+    }
+
+    public void setNroDisparo(Integer nroDisparo) {
+        this.nroDisparo = nroDisparo;
+    }
+
+    public boolean fuego(int tiempo) {
+        if (tiempo > 0) {
+            setNroDisparo(nroDisparo++ );
+            this.m.disparar(tiempo);
+            return true;
+        }
+        return false;
+    }
+
+    public void ensamblar(Metralleta m) {
+        System.out.println("Colocando metralleta...");
+        this.m = m;
+    }
+
+}
+package Exoesqueleto;
+
+import EjercitoRuso.IABot;
+import EjercitoRuso.IHumanoExtremidad;
+
+public class Exobot extends IABot implements IHumanoExtremidad{
+    private Boolean         inicializado;
+    private FuentePoder     fuentepoder;
+    private TurboReactor    turboreactor;
+    private BrazoDerecho    brazoDerecho;
+    private BrazoIzquierdo  brazoIzquierdo;
+    private Pierna          piernaDerecha;
+    private Pierna          piernaIzquierda;
+    private String          nroSerie;
+
+    public String getNroSerie() {
+        return nroSerie;
+    }
+
+    public void setNroSerie(String nroSerie) {
+        this.nroSerie = nroSerie;
+    }
+
+    public Exobot(String nroSerie, FuentePoder fp) {
+        setNroSerie(nroSerie);
+        inicializado    = false;
+        fuentepoder     = new FuentePoder();
+        turboreactor    = new TurboReactor();
+        brazoDerecho    = new BrazoDerecho();
+        brazoIzquierdo  = new BrazoIzquierdo();
+        piernaDerecha   = new Pierna();
+        piernaIzquierda = new Pierna();
+        System.out.println("Exobot armado...");
+    }
+
+    public Boolean inicializar() {
+        if (!inicializado) {
+            System.out.println("Iniciando Exobot...");
+        }
+        return inicializado;
+    }
+
+    public void dispararMetralleta() {
+        if (!inicializado) {
+            brazoIzquierdo.fuego(1);
+        }
+    }
+
+    public void dispararLaser() {
+        if (!inicializado) {
+            brazoDerecho.fuego(1,fuentepoder.getNivelEnergia());
+        }
+    }
+
+
+    public void volar() {
+        this.turboreactor.volar(10);
+    }
+}
+
+
+package Exoesqueleto;
+
+import EjercitoRuso.IABot;
+
+public class FuentePoder {
+    private Integer nivelEnergia;
+    FuentePoder fp;
+
+    public FuentePoder() {        
+    }
+
+    public void recargar(IABot ia) {
+        System.out.println("Recargando el poder...");
+        setNivelEnergia(100);
+    }
+
+    public void reemplazar(IABot ia, FuentePoder fp) {
+        System.out.println("Reemplazando la fuente de poder...");
+        this.fp = fp;
+    }
+
+    public Integer getNivelEnergia() {
+        return this.fp.nivelEnergia;
+    }
+
+    public void setNivelEnergia(Integer nivelEnergia) {
+        this.fp.nivelEnergia = nivelEnergia;
+    }
+    
+}
+package Exoesqueleto;
+
+public interface ITecnicoEspaniol {
+    public void aprender();
+}
+package Exoesqueleto;
+
+public interface ITecnicoIngles {
+    public void aprender();
+
+}
+package Exoesqueleto;
+
+public class Laser {
+    
+    public Boolean disparar(int tiempo) {
+        if (tiempo > 0) {
+            return true;
+        }
+        return false;
+    }
+}
+package Exoesqueleto;
+
+public class Metralleta {
+    private Integer nroBala;
+
+    
+
+    public Metralleta() { 
+        setNroBala(1000);
+    }
+
+    public Boolean disparar(int tiempo) {
+        if (tiempo > 0 && nroBala > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public Integer getNroBala() {
+        return nroBala;
+    }
+
+    public void setNroBala(Integer nroBala) {
+        this.nroBala = nroBala;
+    }   
+
+}
+  package Exoesqueleto;
+
+public class Pierna {
+
+}
+package Exoesqueleto;
+
+public class TurboReactor {
+
+    public void volar(Integer nivelEnergia) {
+        System.out.println("Iniciar el vuelo...");
+    }
+}
+import EjercitoRuso.Whiterun;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        Whiterun w = new Whiterun();
+        w.iniciar();
+    }
+}
+

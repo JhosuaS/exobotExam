@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="DpQxAOJG4Y5skrgp5cEO" name="Page-1">
-        <mxGraphModel dx="1991" dy="575" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1730" dy="485" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -55,16 +55,16 @@
                 <mxCell id="34" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#99FF99;" parent="32" vertex="1">
                     <mxGeometry y="26" width="210" height="8" as="geometry"/>
                 </mxCell>
-                <mxCell id="35" value="+ enseñarIngles(&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 11px; text-align: center; text-wrap-mode: nowrap; background-color: rgb(255, 255, 255);&quot;&gt;ITecnicoIngles&lt;/span&gt;): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="32" vertex="1">
+                <mxCell id="35" value="+ ensenarIngles(&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 11px; text-align: center; text-wrap-mode: nowrap; background-color: rgb(255, 255, 255);&quot;&gt;ITecnicoIngles&lt;/span&gt;): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="32" vertex="1">
                     <mxGeometry y="34" width="210" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="36" value="ExpertoEspañol" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=#99FF99;fillColor=#CCFFCC;" parent="1" vertex="1">
+                <mxCell id="36" value="ExpertoEspanol" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=#99FF99;fillColor=#CCFFCC;" parent="1" vertex="1">
                     <mxGeometry x="250" y="420" width="230" height="64" as="geometry"/>
                 </mxCell>
                 <mxCell id="38" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#99FF99;" parent="36" vertex="1">
                     <mxGeometry y="26" width="230" height="8" as="geometry"/>
                 </mxCell>
-                <mxCell id="39" value="+ enseñarEspañol(&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 11px; text-align: center; text-wrap-mode: nowrap; background-color: rgb(255, 255, 255);&quot;&gt;ITecnicoEspañol&lt;/span&gt;): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="36" vertex="1">
+                <mxCell id="39" value="+ ensenarEspañol(&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 11px; text-align: center; text-wrap-mode: nowrap; background-color: rgb(255, 255, 255);&quot;&gt;ITecnicoEspanol&lt;/span&gt;): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="36" vertex="1">
                     <mxGeometry y="34" width="230" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="44" value="FuentePoder" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#CCFFCC;strokeColor=#99FF99;" parent="1" vertex="1">
@@ -165,10 +165,10 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="79" value="" style="group" parent="1" vertex="1" connectable="0">
-                    <mxGeometry x="-70" y="60" width="160" height="240" as="geometry"/>
+                    <mxGeometry x="-70" y="60" width="190" height="260" as="geometry"/>
                 </mxCell>
                 <mxCell id="69" value="&amp;lt;&amp;lt;abstract&amp;gt;&amp;gt;&lt;br&gt;Humano" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="79" vertex="1">
-                    <mxGeometry y="20" width="190" height="220" as="geometry"/>
+                    <mxGeometry y="20" width="190" height="240" as="geometry"/>
                 </mxCell>
                 <mxCell id="70" value="&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;+ id: Integer&lt;/span&gt;&lt;/div&gt;- nombre: String&lt;div&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;+ brazoIzquierdo: Boolean&lt;/span&gt;&lt;div&gt;+ brazoDerecho&lt;span style=&quot;background-color: transparent; color: rgb(0, 0, 0);&quot;&gt;: Boolean&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: rgb(0, 0, 0);&quot;&gt;+ piernaIzquierdo&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: rgb(0, 0, 0);&quot;&gt;: Boolean&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: rgb(0, 0, 0);&quot;&gt;+ piernaDerecho&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: rgb(0, 0, 0);&quot;&gt;: Boolean&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: rgb(0, 0, 0);&quot;&gt;+ cabeza&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: rgb(0, 0, 0);&quot;&gt;: Boolean&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: rgb(0, 0, 0);&quot;&gt;+ tronco&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: rgb(0, 0, 0);&quot;&gt;: Boolean&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="69" vertex="1">
                     <mxGeometry y="40" width="190" height="130" as="geometry"/>
@@ -177,7 +177,7 @@
                     <mxGeometry y="170" width="190" height="8" as="geometry"/>
                 </mxCell>
                 <mxCell id="72" value="+ Humano(id: int, nombre: String)&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;+ method2(type,&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: rgb(63, 63, 63);&quot;&gt;type&lt;/span&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;): type&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="69" vertex="1">
-                    <mxGeometry y="178" width="190" height="42" as="geometry"/>
+                    <mxGeometry y="178" width="190" height="62" as="geometry"/>
                 </mxCell>
                 <mxCell id="91" value="Pierna" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#CCFFCC;strokeColor=#99FF99;" parent="1" vertex="1">
                     <mxGeometry x="600" y="960" width="160" height="74" as="geometry"/>
