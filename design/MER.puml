@@ -1,0 +1,51 @@
+@startuml
+title Modelo Lógico MER - EXOBOT
+
+' Estilos básicos
+hide circle
+skinparam classAttributeIconSize 0
+skinparam classFontSize 12
+skinparam classAttributeFontSize 11
+skinparam linetype ortho
+
+' Entidad IABot
+class IABot {
+  + IdIABot : INTEGER <<PK>>
+  - Version : TEXT <<UNIQUE>>
+  - Estado : VARCHAR(1) [DEFAULT 'A']
+  - FechaCrea : DATETIME [DEFAULT current_timestamp]
+}
+
+' Entidad ExaBot
+class ExaBot {
+  + IdExaBot : INTEGER <<PK>>
+  - IdIABot : INTEGER <<FK>>
+  - Serie : TEXT
+  - Estado : VARCHAR(1) [DEFAULT 'A']
+  - FechaCrea : DATETIME [DEFAULT current_timestamp]
+}
+
+' Entidad PersonaTipo
+class PersonaTipo {
+  + IdPersonaTipo : INTEGER <<PK>>
+  - Tipo : VARCHAR(15) <<UNIQUE>>
+  - Estado : VARCHAR(1) [DEFAULT 'A']
+  - FechaCreacion : DATETIME [DEFAULT now]
+  - FechaModifica : DATETIME
+}
+
+' Entidad Persona
+class Persona {
+  + IdPersona : INTEGER <<PK>>
+  - IdPersonaTipo : INTEGER <<FK>>
+  - Cedula : TEXT <<UNIQUE>>
+  - Nombre : TEXT
+  - FechaCrea : DATETIME [DEFAULT current_timestamp]
+}
+
+' Relaciones
+ExaBot --> IABot : FK IdIABot
+Persona --> PersonaTipo : FK IdPersonaTipo
+
+@enduml
+
