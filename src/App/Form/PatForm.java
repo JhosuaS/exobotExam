@@ -14,7 +14,7 @@ public class PatForm extends JFrame{
     public void initComponents() {
         // Initialize components here
         JButton btnExample = new JButton("Example Button");
-        //PatButton patButton = new PatButton("Click me");
+        PatButton patButton = new PatButton("Click me");
         btnExample.addActionListener(e -> {
             // Action to perform when the button is clicked
             System.out.println("Button clicked!");
