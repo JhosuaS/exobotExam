@@ -29,9 +29,9 @@ public class IAStyle {
     public static final Cursor CURSOR_HAND = new Cursor(Cursor.HAND_CURSOR);
     public static final Cursor CURSOR_DEFAULT = new Cursor(Cursor.DEFAULT_CURSOR);  
 
-    public static final URL URL_MAIN = IAStyle.class.getResource("/App/Resources/Images/IABot.png");
-    public static final URL URL_LOGO = IAStyle.class.getResource("/App/Resources/Images/Logo.png");
-    public static final URL URL_SPLASH = IAStyle.class.getResource("/App/Resources/Images/Splash.png");
+    public static final URL URL_MAIN = IAStyle.class.getResource("/App/Assets/Images/IABot.png");
+    public static final URL URL_LOGO = IAStyle.class.getResource("/App/Assets/Images/Logo.png");
+    public static final URL URL_SPLASH = IAStyle.class.getResource("/App/Assets/Images/Splash.png");
 
     public static final CompoundBorder createBoderRect () {
         return BorderFactory.createCompoundBorder(  new LineBorder(Color.lightGray),
