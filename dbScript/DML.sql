@@ -26,6 +26,14 @@ SELECT * FROM Persona;
 
 SELECT * FROM PersonaTipo;
 
+INSERT INTO Sexo(Tipo) 
+VALUES          ('Masculino'),
+                ('Femenino'),
+                ('Otro');
+                ('Asexual'),
+                ('Hibrido');
+
+
 INSERT INTO PersonaTipo (Tipo)
 VALUES                  ('Soldado'),
                         ('Mecatrónico'),
@@ -34,27 +42,19 @@ VALUES                  ('Soldado'),
 
 
 INSERT INTO IABot (Version)
-VALUES            ('1.0');
+VALUES            ('IA 1.0');
+                  ('IA-RUSO');
 
 
 
 
-  UPDATE IABot SET Nombre = 'IA-BOT-petmic' WHERE IdIABot = 1;
+UPDATE IABot SET Nombre = 'IA-BOT-petmic' WHERE IdIABot = 1;
 
-
-INSERT INTO IABot (Version)
-VALUES            ('IA-RUSO');
-
- SELECT * FROM IABot;
-
-t
 INSERT INTO ExaBot 
           (IdIABot, Serie)
-VALUES    (1, 'exabot1');
+VALUES    (1, 'exabot1'),
+          (2, 'exabot1');
 
-INSERT INTO ExaBot 
-          (IdIABot,Serie)
-VALUES    (2, 'exabot2');
 
 
 SELECT * FROM ExaBot;
@@ -62,28 +62,32 @@ SELECT * FROM ExaBot;
 SELECT IdExaBot, IdIABot,Nombre, Serie FROM Exabot;
 
 
-INSERT INTO PersonaTipo
-   
+INSERT INTO PersonaTipo(Tipo)
 VALUES ('Soldado'),
        ('Mecatrónico'),
        ('Experto Inglés'),
        ('Experto Español');
 
 SELECT* FROM PersonaTipo;
-
-INSERT INTO Persona (IdPersonaTipo, Cedula, Nombre)
+-- Tablas de detalle
+INSERT INTO Persona 
+(IdPersonaTipo, IdSexo    , Cedula  , Nombre          ,   idioma)
 VALUES
-  (1, '111111', 'pepe'),
-  (1, '222222', 'juan'),
-  (1, '333333', 'pedro'),
-  (1, '444444', 'pablo'),
-  (2, '010100', 'mecatro pedro'),
-  (2, '020200', 'mecatro juan'),
-  (3, '030300', 'experto juan'),
-  (4, '040400', 'experto juan');
+(1,             1,         '111111', 'pepe'          , 'Ruso'  ),
+(1,             1,         '222222', 'juan'          , 'Ruso'  ),
+(1,             1,         '333333', 'pedro'         , 'Ruso'  ),
+(1,             1,         '444444', 'pablo'         , 'Ruso'  ),
+(2,             1,         '010100', 'mecatro pedro' , 'Ruso'  ),
+(2,             1,         '020200', 'mecatro juan'  , 'Ruso'  ),
+(3,             1,         '030300', 'experto juan'  , 'Ingles'  ),
+(4,             1,         '040400', 'experto juan'  , 'Español'  );
 
 
+SELECT * FROM Sexo;
 SELECT * FROM Persona;
+SELECT * FROM PersonaTipo;
+SELECT * FROM IABot;
+SELECT * FROM Exabot;
 
 SELECT IdPersonaTipo
 FROM PersonaTipo
@@ -102,8 +106,4 @@ SELECT * FROM PersonaTipo WHERE Tipo LIKE '%ico';
 SELECT * FROM PersonaTipo WHERE Tipo LIKE '%á%';
 
 
-SELECT * FROM Persona;
-SELECT * FROM PersonaTipo;
-SELECT * FROM IABot;
-SELECT * FROM ExaBot;
 

@@ -1,21 +1,29 @@
 -- database: ../db/Exobot.sqlite
-
--- DDL:Lennguajes de Definición de Datos: Crea y roba tablas  
--- Base de datos: ./database/EXOBOT.sqlite
--- Copyright:
--- Autor:
--- Fecha:
+------------------------------------------------------------------
+-- DDL.sql: Script de creacoón de tabalas de modelo Exabot  
+-- Copyright (c) 2025 EPN-FIS. All rights reserved
+-- #Tu_Correo                  #Tu usario
 
 DROP TABLE IF EXISTS ExaBot;
 DROP TABLE IF EXISTS IABot;
 DROP TABLE IF EXISTS Persona;
 DROP TABLE IF EXISTS PersonaTipo;
+DROP TABLE IF EXISTS Sexo;
+
+CREATE TABLE Sexo (
+    IdSexo           INTEGER PRIMARY KEY AUTOINCREMENT,
+    Nombre           VARCHAR(15) NOT NULL UNIQUE,
+    Estado           VARCHAR(1) NOT NULL DEFAULT ('A'),
+    FechaCreacion    DATETIME NOT NULL DEFAULT (datetime('now', 'localtime')),
+    FechaModifica    DATETIME Not NULL DEFAULT (datetime('now', 'localtime'))
+);
 
 CREATE TABLE IABot (
     IdIABot          INTEGER PRIMARY KEY AUTOINCREMENT,
     Version          TEXT NOT NULL UNIQUE,
     Estado           VARCHAR(1) NOT NULL DEFAULT ('A'),
-    FechaCrea        DATETIME DEFAULT current_timestamp
+    FechaCrea        DATETIME DEFAULT (datetime('now'. 'localtime')),
+    FechaModifica    DATETIME DEFAULT (datetime('now', 'localtime'))
 );
 
 CREATE TABLE ExaBot (
@@ -24,6 +32,7 @@ CREATE TABLE ExaBot (
     Serie            TEXT NOT NULL,
     Estado           VACHAR(1) NOT NULL DEFAULT ('A'),    
     FechaCrea        DATETIME DEFAULT current_timestamp,
+    FechaModifica    DATETIME DEFAULT (datetime('now', 'localtime')),
     CONSTRAINT       fk_IABot FOREIGN KEY (IdIABot)
     REFERENCES       IABot(IdIABot)
 );
@@ -33,14 +42,16 @@ CREATE TABLE PersonaTipo (
     Tipo             VARCHAR(15) NOT NULL UNIQUE,
     Estado           VARCHAR(1) NOT NULL DEFAULT ('A'),
     FechaCreacion    DATETIME NOT NULL DEFAULT (datetime('now', 'localtime')),
-    FechaModifica    DATETIME
+    FechaModifica    DATETIME NOT NULL DEFAULT (datetime('now', 'localtime'))
 );
 
 CREATE TABLE Persona (
     IdPersona        INTEGER PRIMARY KEY AUTOINCREMENT,
     IdPersonaTipo    INTEGER NOT NULL REFERENCES PersonaTipo(IdPersonaTipo),
+    IsSexo           INTEGER NOT NULL REFERENCES PersonaTipo(IdSexo),
     Cedula           TEXT NOT NULL UNIQUE,
     Nombre           TEXT NOT NULL,
+    Idioma           TEXT NOT NULL,
     FechaCrea        DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -64,8 +75,6 @@ SELECT COUNT(*) AS TotalTipoPersona FROM PersonaTipo;
 -- Consultar tipos específicos por ID
 SELECT * FROM PersonaTipo WHERE IdPersonaTipo = 2;
 SELECT * FROM PersonaTipo WHERE IdPersonaTipo < 4;
-
--- Buscar por coincidencias parciales en el campo Tipo
 SELECT Tipo FROM PersonaTipo WHERE Tipo LIKE '%s';
 SELECT Tipo FROM PersonaTipo WHERE Tipo LIKE '%o';
 SELECT Tipo FROM PersonaTipo WHERE Tipo LIKE '%os';
